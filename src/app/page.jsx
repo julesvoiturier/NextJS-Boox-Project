@@ -25,7 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(fetchContent())
-  }, [])
+  }, [dispatch])
 
   const contents = useSelector((state) => state.data.contents)
   const isLoading = useSelector((state) => state.data.isLoading)

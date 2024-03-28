@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import connectionSlice from './features/connection/connectionSlice'
 import dataSlice from './features/data/dataSlice'
 
-export const makeStore = () => {
+export const store = () => {
 
   return configureStore({
     reducer: {
@@ -12,4 +12,4 @@ export const makeStore = () => {
   })
 }
 
-export default makeStore;
+export default store;

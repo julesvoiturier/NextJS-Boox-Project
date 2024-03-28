@@ -26,7 +26,7 @@ const initialState = {
 }
 
 export const fetchContent = createAsyncThunk(
-  'data/dataSlice',
+  'content/fetchContent',
   async () => {
     const res = await axios('https:/example-data.draftbit.com/books')
     const data = await res.data
