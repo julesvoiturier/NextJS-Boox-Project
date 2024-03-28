@@ -14,7 +14,7 @@ export default function Home() {
     const error = useSelector((state) => state.content.error)
   
     if (isLoading) {
-      return 'loading...'
+      return <div className="text-[100px] text-white">LOADING</div>
     }
   
     if (error) {
