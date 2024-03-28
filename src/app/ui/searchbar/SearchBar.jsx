@@ -6,12 +6,10 @@ export default function SearchBar() {
   const Data = useSelector((state) => state.content.contents)
   const isLoading = useSelector((state) => state.content.isLoading)
   const error = useSelector((state) => state.content.error)
+  const [search, setSearch] = useState("")
 
   if (isLoading) {return <div className="text-white text-[100px]">isLoading</div>}
   if (error) {return error}
-
-  const [search, setSearch] = useState("")
-
   return (
     <div className='relative w-[25%] flex flex-col gap-[16px] rounded-full text-white m-6 z-20 '>
         <input onChange={(e)=> setSearch(e.target.value)} className='focus:outline-none rounded-full h-[40px] border-[1px] focus:border-[#fbfbfb5d] border-[#fbfbfb27] bg-[#000000] px-4 py-1 text-[14px] w-full' type="text" placeholder='search' />
