@@ -20,12 +20,12 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchContent } from "./reduxLib/features/data/dataSlice"
 import BottomBar from "./ui/bottomBar/BottomBar"
 
-function Home() {
+export default function Home() {
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchContent())
-  }, [dispatch])
+  }, [])
 
   const contents = useSelector((state) => state.data.contents)
   const isLoading = useSelector((state) => state.data.isLoading)
@@ -37,6 +37,7 @@ function Home() {
   }
 
   if (error) {
+    console.log("error");
     return error
   }
 
@@ -51,5 +52,3 @@ function Home() {
     </div>
   )
 }
-
-export default Home
