@@ -24,7 +24,7 @@ export default function Authors() {
     <div className='p-6'>
       {Data.map((book, key)=> {
         return(
-            <div className='text-white'>{book.authors}</div>
+            <div key={key} className='text-white'>{book.authors}</div>
         )
       })}
       <BottomBar/>

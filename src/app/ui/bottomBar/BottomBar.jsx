@@ -42,7 +42,7 @@ export default function BottomBar() {
                 {
                   links.map((link, key)=> {
                     return(
-                      <Link
+                      <Link key={key}
                       href={link.path} 
                       className={`${activeLink == link.name.toLowerCase() ? "bg-[#f2f2f2] text-black" : "bg-[#000000] text-white"}  transition-all w-[130px] flex justify-center items-center rounded-full`}
                       >{link.name}
