@@ -5,7 +5,7 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import BottomBar from "./../ui/bottomBar/BottomBar"
 
-export default function page() {
+export default function Page() {
 
   const Data = useSelector((state) => state.content.contents)
   const isLoading = useSelector((state) => state.content.isLoading)

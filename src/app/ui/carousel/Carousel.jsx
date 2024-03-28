@@ -8,12 +8,12 @@ const Carousel = () => {
     const [images, setImages] = useState(["bg-green-500", "bg-yellow-400", "bg-blue-400", "bg-purple-500"])
     const [slideNbr, setSlideNbr] = useState(0)
 
-    useEffect(() => {
-        if (sliderRef.current) {
-            sliderRef.current.style.transition = 'transform 0.5s ease-out';
-            sliderRef.current.style.transform = `translateX(-${slideNbr*100}%)`;
-        }
-    }, [slideNbr]);
+    // useEffect(() => {
+    //     if (sliderRef.current) {
+    //         sliderRef.current.style.transition = 'transform 0.5s ease-out';
+    //         sliderRef.current.style.transform = `translateX(-${slideNbr*100}%)`;
+    //     }
+    // }, [slideNbr]);
 
     return (
         <div className='relative w-[800px] h-[500px]'>
@@ -22,7 +22,7 @@ const Carousel = () => {
                     {
                         images.map((image, key) => {
                             return(
-                                <div className='w-full h-full flex'>
+                                <div key={key} className='w-full h-full flex'>
                                     <div className={`w-full h-full ${image}`}></div>
                                 </div>
                             )

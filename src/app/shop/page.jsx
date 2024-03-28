@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import BottomBar from "../ui/bottomBar/BottomBar"
 import SearchBar from "../ui/searchbar/SearchBar"
 
-export default function page() {
+export default function Page() {
 
     const Data = useSelector((state) => state.content.contents)
     const isLoading = useSelector((state) => state.content.isLoading)
