@@ -21,10 +21,10 @@ export default function BottomBar() {
       "name": "Authors",
       "path": "/authors"
     },
-    // {
-    //   "name": "Favourites",
-    //   "path": "/favourites"
-    // },
+    {
+      "name": "Favourites",
+      "path": "/favourites"
+    },
   ]
 
   const [activeLink, setActiveLink] = useState('');

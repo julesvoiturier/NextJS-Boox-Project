@@ -1,24 +1,18 @@
 "use client"
 
 import React from 'react'
-import { useEffect } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-// import { fetchContent } from "./reduxLib/features/data/dataSlice"
 import BottomBar from "./../ui/bottomBar/BottomBar"
 
-export default function Authors() {
+export default function page() {
 
-    const Data = useSelector((state) => state.content.contents)
-    const isLoading = useSelector((state) => state.content.isLoading)
-    const error = useSelector((state) => state.content.error)
-  
-    if (isLoading) {
-      return 'loading...'
-    }
-  
-    if (error) {
-      return error
-    }
+  const Data = useSelector((state) => state.content.contents)
+  const isLoading = useSelector((state) => state.content.isLoading)
+  const error = useSelector((state) => state.content.error)
+
+  if (isLoading) {return <div className="text-white text-[100px]">isLoading</div>}
+  if (error) {return error}
 
   return (
     <div className='p-6'>

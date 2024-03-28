@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-export default function LogIn() {
+export default function page() {
   return (
     <div className='text-white h-screen flex justify-center items-center'>
       <div className='w-1/2 h-1/2 bg-[#313131] rounded-lg p-6'>

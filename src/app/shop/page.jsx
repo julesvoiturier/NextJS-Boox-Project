@@ -2,24 +2,18 @@
 
 import Image from "next/image"
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
-import { setData } from "../reduxLib/features/content/contentSlice"
+import { useEffect, useState } from "react"
 import BottomBar from "../ui/bottomBar/BottomBar"
 import SearchBar from "../ui/searchbar/SearchBar"
 
-export default function Home() {
+export default function page() {
 
     const Data = useSelector((state) => state.content.contents)
     const isLoading = useSelector((state) => state.content.isLoading)
     const error = useSelector((state) => state.content.error)
-  
-    if (isLoading) {
-      return <div className="text-[100px] text-white">LOADING</div>
-    }
-  
-    if (error) {
-      return error
-    }
+
+    if (isLoading) {return <div className="text-white text-[100px]">isLoading</div>}
+    if (error) {return error}
 
   return (
     <div className="w-full text-white">

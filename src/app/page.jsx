@@ -1,28 +1,14 @@
-// import Home from './Home'
-
-// async function getData() {
-//   const res = await fetch('https:/example-data.draftbit.com/books')
-//   if (!res.ok) {
-//   }
-//   return res.json()
-// }
-
-// export default async function Page() {
-//   const data = await getData()
- 
-//   return <Home data={data}/>
-// }
-
 "use client"
 
-import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchContent } from "./reduxLib/features/content/contentSlice"
+import { useEffect } from "react"
 import BottomBar from "./ui/bottomBar/BottomBar"
+import Carousel from "./ui/carousel/Carousel"
 
-export default function Home() {
+function App() {
+
   const dispatch = useDispatch()
-
   useEffect(() => {
     dispatch(fetchContent())
   }, [dispatch])
@@ -31,16 +17,12 @@ export default function Home() {
   const isLoading = useSelector((state) => state.content.isLoading)
   const error = useSelector((state) => state.content.error)
 
-  if (isLoading) {
-    return <div className="text-[100px] text-white">LOADING</div>
-  }
-
-  if (error) {
-    return error
-  }
+  if (isLoading) {return <div className="text-white text-[100px]">isLoading</div>}
+  if (error) {return error}
 
   return (
-    <div className='text-white'>
+    <div className=''>
+      <Carousel Data={Data}/>
       {Data && Data.map((book, key) => (
         <div key={key}>
           <div className="text-white">{book.authors}</div>
@@ -50,3 +32,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default App
