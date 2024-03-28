@@ -3,18 +3,21 @@ import { createSlice } from '@reduxjs/toolkit'
 export const connectionSlice = createSlice({
   name: 'connection',
   initialState: {
-    logIn: false,
-    signIn: false
+    accounts: [],
+    loggedAccount: {}
   },
   reducers: {
-    log: (state) => {
-        state.logIn = true
+    logIn: (state) => {
+        //map in accounts, if name match, verify if password matches too. if yes, reset "loggedAcount" and push the new account, else: throw error
     },
-    sign: (state) => {
-        state.signIn = true
+    createAccount: (state, action) => {
+        accounts.push(action.payload)
+    },
+    deleteAccount: (state, action) => {
+        //map in accounts, if action.payload.name && action.payload.password match, else: throw error
     },
   }
 })
 
-export const { log, sign } = connectionSlice.actions
+export const { logIn, createAccount, deleteAccount } = connectionSlice.actions
 export default connectionSlice.reducer

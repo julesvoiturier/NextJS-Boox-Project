@@ -1,6 +1,9 @@
 import { Inter } from "next/font/google";
 import StoreProvider from "./StoreProvider";
 import "./globals.css";
+import Header from "./ui/header/Header";
+import Footer from "./ui/footer/Footer";
+import Cart from "./ui/cart/Cart";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,11 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <StoreProvider>
-        <html lang="en">
+        <html className="bg-[#000000]" lang="en">
           <body className={inter.className}>
-            <header>header</header>
+            <Cart/>
+            <Header/>
             {children}
-            <footer>footer</footer>
+            <Footer/>
           </body>
         </html>
     </StoreProvider>
