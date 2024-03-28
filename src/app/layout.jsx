@@ -14,15 +14,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <StoreProvider>
         <html className="bg-[#000000]" lang="en">
-          <body className={inter.className}>
-            <Cart/>
-            <Header/>
-            {children}
-            <Footer/>
-          </body>
+          <StoreProvider>
+            <body className={inter.className}>
+              <Cart/>
+              <Header/>
+              {children}
+              <Footer/>
+            </body>
+          </StoreProvider>
         </html>
-    </StoreProvider>
   );
 }

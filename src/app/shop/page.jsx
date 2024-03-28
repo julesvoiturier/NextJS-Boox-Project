@@ -3,16 +3,26 @@
 import Image from "next/image"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import { setData } from "../reduxLib/features/data/dataSlice"
+import { setData } from "../reduxLib/features/content/contentSlice"
 import BottomBar from "../ui/bottomBar/BottomBar"
 import SearchBar from "../ui/searchbar/SearchBar"
 
-export default function Home({data}) {
+export default function Home() {
 
-    const Data = useSelector((state) => state.data.contents)
+    const Data = useSelector((state) => state.content.contents)
+    const isLoading = useSelector((state) => state.content.isLoading)
+    const error = useSelector((state) => state.content.error)
+  
+    if (isLoading) {
+      return 'loading...'
+    }
+  
+    if (error) {
+      return error
+    }
 
   return (
-    <div className="w-full">
+    <div className="w-full text-white">
         <div className="text-white text-[14px] p-6 ">
             <div className="mt-6">
                 <div className="px-6 text-[30px] font-bold">Section Title</div>
@@ -20,7 +30,7 @@ export default function Home({data}) {
                 <SearchBar/>
             </div>
             <div className="flex flex-wrap ">
-                {Data.map((book, key)=> {
+                {Data && Data.map((book, key)=> {
                     return(
                         <div key={key} className="w-1/6 h-[550px] p-6 group">
                             <div className="w-full aspect-[2/3] bg-white overflow-hidden rounded-md flex justify-center items-center transition-all group-hover:translate-y-[-5px]">

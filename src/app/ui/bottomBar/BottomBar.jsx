@@ -3,7 +3,7 @@
 import React from 'react'
 import Filters from '../filters/Filters'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function BottomBar() {
@@ -21,10 +21,10 @@ export default function BottomBar() {
       "name": "Authors",
       "path": "/authors"
     },
-    {
-      "name": "Favourites",
-      "path": "/favourites"
-    },
+    // {
+    //   "name": "Favourites",
+    //   "path": "/favourites"
+    // },
   ]
 
   const [activeLink, setActiveLink] = useState('');

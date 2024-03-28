@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 export default function SearchBar() {
 
-    const Data = useSelector((state) => state.data.contents)
+    const Data = useSelector((state) => state.content.contents)
 
     const [search, setSearch] = useState("")
 

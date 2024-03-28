@@ -17,7 +17,7 @@
 
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchContent } from "./reduxLib/features/data/dataSlice"
+import { fetchContent } from "./reduxLib/features/content/contentSlice"
 import BottomBar from "./ui/bottomBar/BottomBar"
 
 export default function Home() {
@@ -27,25 +27,23 @@ export default function Home() {
     dispatch(fetchContent())
   }, [dispatch])
 
-  const contents = useSelector((state) => state.data.contents)
-  const isLoading = useSelector((state) => state.data.isLoading)
-  const error = useSelector((state) => state.data.error)
+  const Data = useSelector((state) => state.content.contents)
+  const isLoading = useSelector((state) => state.content.isLoading)
+  const error = useSelector((state) => state.content.error)
 
   if (isLoading) {
-    console.log("loading");
     return 'loading...'
   }
 
   if (error) {
-    console.log("error");
     return error
   }
 
   return (
-    <div className=''>
-      {contents.map((content, key) => (
+    <div className='text-white'>
+      {Data && Data.map((book, key) => (
         <div key={key}>
-          <div className="text-white">{content.authors}</div>
+          <div className="text-white">{book.authors}</div>
         </div>
       ))}
       <BottomBar/>

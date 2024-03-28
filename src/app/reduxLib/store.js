@@ -1,15 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import connectionSlice from './features/connection/connectionSlice'
-import dataSlice from './features/data/dataSlice'
+import contentSlice from './features/content/contentSlice'
 
-export const store = () => {
-
-  return configureStore({
-    reducer: {
-        connection: connectionSlice,
-        data: dataSlice
-    }
-  })
-}
-
-export default store;
+export const store = configureStore({
+  reducer: {
+    content: contentSlice,
+  },
+})

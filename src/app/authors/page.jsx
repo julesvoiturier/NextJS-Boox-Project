@@ -8,21 +8,21 @@ import BottomBar from "./../ui/bottomBar/BottomBar"
 
 export default function Authors() {
 
-    const Data = useSelector((state) => state.data.contents)
-    const isLoading = useSelector((state) => state.data.isLoading)
-    const error = useSelector((state) => state.data.error)
+    const Data = useSelector((state) => state.content.contents)
+    const isLoading = useSelector((state) => state.content.isLoading)
+    const error = useSelector((state) => state.content.error)
   
-    // if (isLoading) {
-    //   return 'loading...'
-    // }
+    if (isLoading) {
+      return 'loading...'
+    }
   
-    // if (error) {
-    //   return error
-    // }
+    if (error) {
+      return error
+    }
 
   return (
     <div className='p-6'>
-      {Data.map((book, key)=> {
+      {Data && Data.map((book, key)=> {
         return(
             <div key={key} className='text-white'>{book.authors}</div>
         )

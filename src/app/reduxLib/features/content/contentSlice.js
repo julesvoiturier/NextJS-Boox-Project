@@ -1,21 +1,3 @@
-// import { createSlice } from '@reduxjs/toolkit'
-
-// export const dataSlice = createSlice({
-//   name: 'data',
-//   initialState: {
-//     data: []
-//   },
-//   reducers: {
-//     setData: (state, action) => {
-//         state.data = action.payload
-//         // state.data.splice(-2, 2)
-//     }
-//   }
-// })
-
-// export const { setData } = dataSlice.actions
-// export default dataSlice.reducer
-
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
@@ -34,8 +16,8 @@ export const fetchContent = createAsyncThunk(
   }
 )
 
-export const dataSlice = createSlice({
-  name: 'data',
+export const contentSlice = createSlice({
+  name: 'content',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -53,4 +35,4 @@ export const dataSlice = createSlice({
   },
 })
 
-export default dataSlice.reducer
+export default contentSlice.reducer
