@@ -4,10 +4,10 @@ import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { logOut } from '@/app/reduxLib/features/connection/connectionSlice'
 
-export default function header() {
+export default function Header() {
 
   const [disconnectToggle, setDisconnectToggle] = useState(false)
-  
+
   const dispatch = useDispatch()
   const logged = useSelector((state) => state.connection.logged);
   const loggedAccount = useSelector((state) => state.connection.loggedAccount);
