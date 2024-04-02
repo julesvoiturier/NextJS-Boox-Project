@@ -24,6 +24,7 @@ export default function SearchBar() {
               if (book.authors.toLowerCase().includes(search.toLowerCase()) && search !== "") {
                   return (
                     <Link 
+                    key={index}
                       href={`/authors/${index}`}
                       className={`font-light transition-all text-start px-4 py-2 text-[14px] h-fit border-b-[1px] border-[#fbfbfb27] hover:text-slate-400 hover:px-5`}
                     >{book.authors} <span className='opacity-30'> - Author</span>
@@ -32,7 +33,8 @@ export default function SearchBar() {
               } 
               if (book.title.toLowerCase().includes(search.toLowerCase()) && search !== "") {
                   return (
-                    <Link 
+                    <Link
+                      key={index}
                       href={`/shop/${index}`}
                       className={`font-light transition-all text-start px-4 py-2 text-[14px] h-fit border-b-[1px] border-[#fbfbfb27] hover:text-slate-400 hover:px-5`}
                       >{book.title} <span className='opacity-30'> - Book</span>

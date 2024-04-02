@@ -5,10 +5,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logOut } from '@/app/reduxLib/features/connection/connectionSlice'
 
 export default function header() {
+
+  const [disconnectToggle, setDisconnectToggle] = useState(false)
+  
   const dispatch = useDispatch()
   const logged = useSelector((state) => state.connection.logged);
   const loggedAccount = useSelector((state) => state.connection.loggedAccount);
-  const [disconnectToggle, setDisconnectToggle] = useState(false)
 
   return (
     <div className='w-full h-[70px] bg-[#101010] flex justify-between items-center px-6 text-white fixed z-20'>

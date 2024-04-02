@@ -23,7 +23,7 @@ export default function Filters() {
         <div className='text-white bg-[#0f0f0faf] border-[1px] border-[#f2f2f231] rounded-lg'>
         <div className='bg-black font-bold rounded-t-lg py-2 px-4 border-b-[1px] border-[#f2f2f231]'>Rating</div>
           <div className='flex w-full gap-2 text-left'>
-            {ratingFilterButtons.map((element, key)=>{return( <button onClick={()=> dispatch(setRateFilter(element))} 
+            {ratingFilterButtons.map((element)=>{return( <button onClick={()=> dispatch(setRateFilter(element))} 
             className={`${rateFilter != element ? 'text-white' : 'text-violet-500'} transition-all w-1/3 my-2 capitalize`}>{element}</button> )})}
           </div>
         </div>
@@ -32,7 +32,7 @@ export default function Filters() {
             <div className='text-white'>Genre <span className='font-light text-violet-500'> - ({selected})</span></div>
             <button onClick={(e)=> dispatch(filterData({"genre" : "all"}))} className={`${selected == "all" ? 'text-violet-500' : 'hover:text-slate-400'}  transition-all`}>All</button>
           </div>
-          {genres && genres.map((genre, key)=> {
+          {genres && genres.map((genre)=> {
               return(
                 <button onClick={(e)=> dispatch(filterData({"genre" : e.target.innerText}))}
                 className={`${selected.toLowerCase() == genre.toLowerCase() ? "text-violet-500" : "hover:text-slate-400 hover:px-6 text-left"}  flex items-center justify-start px-4 py-2 w-full border-b-[1px] border-[#f2f2f231] transition-all `}>
