@@ -12,8 +12,8 @@ export default function Page() {
   const isLoading = useSelector((state) => state.content.isLoading)
   const error = useSelector((state) => state.content.error)
 
-  let authorsArray = Data.map(book => book.authors).sort()
-  const newArray = [...new Set(authorsArray)];
+  let authorsArray = Data.map(book => book.authors).sort();
+  const newArray = [...new Set(authorsArray)].filter(name => name !== undefined);
 
   const namesCol = [
     newArray.filter(name => name.charCodeAt(0) >= 'A'.charCodeAt(0) && name.charCodeAt(0) <= 'E'.charCodeAt(0)),
