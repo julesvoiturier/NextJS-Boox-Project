@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <StoreProvider>
       <html className="bg-[#000000]" lang="en">
-          <body className={inter.className}>
+          <body className={`${inter.className}`}>
             <Cart/>
             <Header/>
             {children}

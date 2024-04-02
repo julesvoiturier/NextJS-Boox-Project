@@ -3,7 +3,6 @@
 import React from 'react'
 import Filters from '../filters/Filters'
 import Link from 'next/link'
-// import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function BottomBar() {
@@ -30,9 +29,8 @@ export default function BottomBar() {
   const [activeLink, setActiveLink] = useState('');
 
   useEffect(() => {
-     // This code will run on the client side after the component has mounted
      setActiveLink(window.location.pathname.split('/').pop());
-  }, []); // Empty dependency array ensures this runs only once after mount
+  }, []);
 
   return (
     <div className='w-full h-[200px] gradientBottomBar fixed bottom-0 flex justify-center items-center text-white text-[14px]'>
@@ -44,7 +42,7 @@ export default function BottomBar() {
                     return(
                       <Link key={key}
                       href={link.path} 
-                      className={`${activeLink == link.name.toLowerCase() ? "bg-[#f2f2f2] text-black" : "bg-[#000000] text-white"}  transition-all w-[130px] flex justify-center items-center rounded-full`}
+                      className={`${activeLink == link.name.toLowerCase() || link.name == "Home" && activeLink == "" ? "bg-[#f2f2f2] text-black" : "bg-[#101010] text-white hover:bg-[#454545]"} transition-all w-[130px] flex justify-center items-center rounded-full`}
                       >{link.name}
                       </Link>
                     )
