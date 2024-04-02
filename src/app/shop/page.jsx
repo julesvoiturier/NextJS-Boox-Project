@@ -12,6 +12,7 @@ import { updateFavs } from "../reduxLib/features/connection/connectionSlice"
 export default function Page() {
 
     const [favourites, setFavourites] = useState(["The Hunger Games", "Twilight"])
+    const loggedAccount = useSelector((state) => state.connection.loggedAccount);
 
     useEffect(() => {
         setFavourites(loggedAccount.favourites)
@@ -21,7 +22,6 @@ export default function Page() {
     const filteredData = useSelector((state) => state.content.filteredData)
     const isLoading = useSelector((state) => state.content.isLoading)
     const error = useSelector((state) => state.content.error)
-    const loggedAccount = useSelector((state) => state.connection.loggedAccount);
     const selected = useSelector((state) => state.content.selectedGenre)
 
     const dispatch = useDispatch()
