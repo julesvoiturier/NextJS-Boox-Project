@@ -33,7 +33,7 @@ export default function BottomBar() {
   }, []);
 
   return (
-    <div className='w-full h-[200px] gradientBottomBar fixed bottom-0 flex justify-center items-center text-white text-[14px]'>
+    <div className='w-full h-[200px] gradientBottomBar fixed bottom-0 flex justify-center items-center text-white text-[14px] z-20'>
         <div className='w-1/3 px-12'><Filters/></div>
         <div className='w-1/3'>
             <div className='w-fit h-[60px] flex p-2 bg-[#fbfbfb27] rounded-full gap-2 backdrop-blur-lg shadow-lg'>

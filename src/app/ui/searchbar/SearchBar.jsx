@@ -15,6 +15,7 @@ export default function SearchBar() {
 
   if (isLoading) {return <div className="text-white text-[100px]">isLoading</div>}
   if (error) {return error}
+
   return (
     <div className='relative w-[25%] flex flex-col gap-[16px] rounded-full text-white m-6 z-10 '>
         <input onChange={(e)=> dispatch(newSearch(e.target.value))} onClick={()=> openFilter && dispatch(toggleFilter())} className='focus:outline-none font-light rounded-full h-[40px] border-[1px] focus:border-[#fbfbfb5d] border-[#fbfbfb27] bg-[#000000] px-4 py-1 text-[14px] w-full' type="text" placeholder='search' />

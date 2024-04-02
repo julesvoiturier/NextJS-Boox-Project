@@ -26,6 +26,7 @@ export const connectionSlice = createSlice({
         state.logged = true
         state.accounts.push(action.payload)
         state.loggedAccount = action.payload
+        console.log(action.payload);
     },
 
     deleteAccount: (state, action) => {
