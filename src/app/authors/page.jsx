@@ -24,6 +24,9 @@ export default function Page() {
 
   if (isLoading) {return <div className="text-white text-[100px]">isLoading</div>}
   if (error) {return error}
+  if (!Data) {
+    return <div>Loading...</div>; 
+  }
 
   return (
     <div className='p-6 flex justify-between pt-[140px]'>
