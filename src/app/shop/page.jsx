@@ -37,7 +37,7 @@ export default function Page() {
                     {filteredData && filteredData.map((book, key)=> {
                         return(
                             <div key={key} className="w-1/6 h-[550px] p-6 group">
-                                <Link href={`/shop/${book.id-1}`} key={key} className="w-1/6 p-6 group">
+                                <Link href={`/shop/${book.id-1}`} className="w-1/6 p-6 group">
                                     <div className="w-full aspect-[2/3] bg-white overflow-hidden rounded-md flex justify-center items-center transition-all group-hover:translate-y-[-5px]">
                                         <img className={`w-full rounded-md scale-[105%] transition-all`} src={book.image_url} alt="" />
                                     </div>

@@ -54,7 +54,7 @@ export default function Page() {
                 <div className="flex flex-wrap px-3 min-h-screen">                    
                     {filteredData && filteredData.map((book, key)=> {
                         return(
-                            <div className=" w-1/6 max-sm:w-1/2 h-[580px] max-sm:h-[450px] p-3 group">
+                            <div key={key} className=" w-1/6 max-sm:w-1/2 h-[580px] max-sm:h-[450px] p-3 group">
                                 <Link href={`/shop/${book.id-1}`} key={key} className="w-1/6 p-6 ">
                                     <div className="w-full aspect-[2/3] bg-white overflow-hidden rounded-md flex justify-center items-center transition-all group-hover:translate-y-[-5px] group">
                                         <img className={`w-full rounded-md scale-[105%] transition-all`} src={book.image_url} alt="" />
