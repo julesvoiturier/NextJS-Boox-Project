@@ -9,24 +9,34 @@ export const connectionSlice = createSlice({
   },
   reducers: {
     logIn: (state, action) => {
-        state.accounts.map((account, key)=> {
-          if (account.password == action.payload.password && account.userName == action.payload.userName) {
-            state.loggedAccount = account
-            state.logged = true
-          }
-        })
+      state.loggedAccount = action.payload
+      state.logged = true
+        // state.accounts.map((account, key)=> {
+        //   if (account.password == action.payload.password && account.userName == action.payload.userName) {
+        //     state.loggedAccount = account
+        //     state.logged = true
+        //   }
+        // })
     },
 
     logOut: (state) => {
-        state.loggedAccount = {}
-        state.logged = false
+      state.accounts = state.accounts.map((element, index) => {
+         if (element.userName == state.loggedAccount.userName) {
+           return state.loggedAccount;
+         }
+         return element;
+      });
+      state.loggedAccount = {};
+      state.logged = false;
     },
 
     createAccount: (state, action) => {
         state.logged = true
         state.accounts.push(action.payload)
         state.loggedAccount = action.payload
-        console.log(action.payload);
+        state.accounts.forEach((element, key)=> {
+          alert(element.userName)
+        })
     },
 
     deleteAccount: (state, action) => {
@@ -37,15 +47,16 @@ export const connectionSlice = createSlice({
         })
     },
 
+    //! add/remove favourites
     updateFavs: (state, action) => {
-      state.loggedAccount.favourites && state.loggedAccount.favourites.map((element, index)=> {
-        if (element == action.payload) {
-          state.loggedAccount.favourites.splice(index, 1)
-          return
-        }
-      })
-      state.loggedAccount.favourites.push(action.payload)
-    },
+      if (state.loggedAccount.favourites.some(element => element.title === action.payload.title)) {
+         //! If the payload is already in favourites, remove it
+         state.loggedAccount.favourites = state.loggedAccount.favourites.filter(element => element.title !== action.payload.title);
+      } else {
+         //! If the payload is not in favourites, add it
+         state.loggedAccount.favourites = [...state.loggedAccount.favourites, action.payload];
+      }
+    }
   }
 })
 

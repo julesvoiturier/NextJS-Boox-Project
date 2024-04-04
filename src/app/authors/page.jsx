@@ -29,15 +29,13 @@ export default function Page() {
   }
 
   return (
-    <div className='p-6 flex justify-between pt-[140px]'>
+    <div className='flex justify-between pt-[70px] text-[14px] max-sm:flex-col'>
       {namesCol && namesCol.map((column, index) => (
-        <div key={index} className="p-6 w-[25%] flex flex-col">
-          <div className='text-white text-[20px] font-bold'>{column[0].charAt(0)} - {column[column.length-1].charAt(0)}</div>
-          <hr className='py-4 opacity-30' />
+        <div key={index} className="p-6 w-[25%] max-sm:w-full flex flex-col">
+          <div className='text-white text-[20px] font-bold sticky top-[70px] z-30 h-[70px] bg-black py-6 border-b-[0.5px] border-[#4d4d4d] mb-2'>{column[0].charAt(0)} - {column[column.length-1].charAt(0)}</div>
           {column.map(name => (
-            <Link href="/" className='text-white font-light hover:text-violet-500 transition-all hover:translate-x-[3px] tracking-wide pb-2 mb-2 border-b-[0.5px] border-[#262626]' key={name}>{name}</Link>
+            <Link href={`/authors/${name}`} className='text-white font-light hover:text-violet-500 transition-all hover:translate-x-[3px] tracking-wide pb-2 mb-2 border-b-[0.5px] border-[#262626]' key={name}>{name}</Link>
           ))}
-          <hr className=' opacity-30 mt-6'/>
         </div>
       ))}
       <BottomBar/>

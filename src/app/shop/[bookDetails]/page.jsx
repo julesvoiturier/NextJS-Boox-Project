@@ -32,24 +32,24 @@ export default function Page({ params }) {
  return (
     <div className='text-white pt-[140px] w-full p-6 flex flex-col justify-center items-center'>
       <div className='w-[80%] gap-8 p-6 flex'>
-         <img className='w-1/3 rounded-lg' src={bookDetails.image_url} alt="" />
+         <img className='w-1/3 rounded-lg' src={bookDetails?.image_url} alt="" />
          <div className='w-2/3 flex flex-col gap-4'>
             <div>
-               <p className='font-bold text-[30px] leading-[35px]'>{bookDetails.title}</p>
-               <p className='font-light opacity-50 pt-4'>{bookDetails.authors}</p>
+               <p className='font-bold text-[30px] leading-[35px]'>{bookDetails?.title}</p>
+               <p className='font-light opacity-50 pt-4'>{bookDetails?.authors}</p>
                <hr className='mt-4 opacity-10'/>
             </div>
             <div className=''>
-               <p className='font-bold text-[20px] text-violet-500'>{bookDetails.rating} / 5 </p>
-               <p className='font-light opacity-50 text-[12px]'>({bookDetails.rating_count} ratings)</p>
+               <p className='font-bold text-[20px] text-violet-500'>{bookDetails?.rating} / 5 </p>
+               <p className='font-light opacity-50 text-[12px]'>({bookDetails?.rating_count} ratings)</p>
             </div>
             <div>
                <p className='font-bold text-[20px] pb-2'>Description:</p>
-               <p className='font-light'>{bookDetails.description}</p>
+               <p className='font-light'>{bookDetails?.description}</p>
                <hr className='mt-4 opacity-10'/>
             </div>
             <div>
-               <p className='font-light text-[12px]'>{bookDetails.genres}</p>
+               <p className='font-light text-[12px]'>{bookDetails?.genres}</p>
                <hr className='opacity-10 mt-4'/>
             </div>
          </div>
@@ -58,9 +58,9 @@ export default function Page({ params }) {
          <div className='text-center bg-[#101010] p-8 rounded-lg'>
                <p className='font-bold text-[20px]'>Famous quotes:</p>
                <div className='flex flex-col gap-2 mt-4 font-light'>
-                  <p className=''>{bookDetails.Quote1}</p>
-                  <p className=''>{bookDetails.Quote2}</p>
-                  <p className=''>{bookDetails.Quote3}</p>
+                  <p className=''>{bookDetails?.Quote1}</p>
+                  <p className=''>{bookDetails?.Quote2}</p>
+                  <p className=''>{bookDetails?.Quote3}</p>
                </div>
          </div>
          {

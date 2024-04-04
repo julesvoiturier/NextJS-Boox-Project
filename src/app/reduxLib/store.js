@@ -4,7 +4,7 @@ import filterSlice from './features/filters/filterSlice'
 import connectionSlice from './features/connection/connectionSlice'
 
 export const store = configureStore({
-  reducer: {
+  reducer:{
     content: contentSlice,
     filters: filterSlice,
     connection: connectionSlice,
