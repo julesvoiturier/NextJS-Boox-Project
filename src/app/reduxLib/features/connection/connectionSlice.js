@@ -35,7 +35,6 @@ export const connectionSlice = createSlice({
         state.accounts.push(action.payload)
         state.loggedAccount = action.payload
         state.accounts.forEach((element, key)=> {
-          alert(element.userName)
         })
     },
 
