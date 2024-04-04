@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-export default function page({params}) {
+export default function Page({params}) {
 
     const authorName = params.authorsDetails.replaceAll("%20", " ")
     const Data = useSelector((state) => state.content.contents)

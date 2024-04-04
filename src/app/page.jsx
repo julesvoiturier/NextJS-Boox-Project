@@ -32,7 +32,7 @@ export default function Page() {
 
     useEffect(() => {
         dispatch(fetchContent())
-    },[dispatch])
+    },[])
 
       useEffect(() => {dispatch(setGenres())},[Data]);
 
