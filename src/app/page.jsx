@@ -51,11 +51,11 @@ export default function Page() {
     return (
         <div className={`w-full text-white pt-[70px] animate-slideUp z-50 ${theme.bgColor1}`}>
             <div className="text-white text-[14px]">
-                <div className={`${theme.textColor1} font-bold tracking-tight text-[100px] px-6 border-b-[1px] border-[#2e1848] flex leading-none max-sm:w-full max-sm:justify-between max-sm:text-[80px]`}>BOOX
+                <div className={`${theme.textColor1} font-bold tracking-tight text-[100px] px-6 py-4 border-b-[1px] border-[#2e1848] flex leading-none max-sm:w-full max-sm:justify-between max-sm:text-[80px]`}>BOOX
                     <div className="text-[15px] tracking-normal pl-6 py-3 flex flex-col justify-between max-sm max-sm:text-right">Search <br />Review <br />Discover</div>
                 </div>
                 <Carousel Data={Data}/>
-                <div className={`${theme.bgColor1} mt-6 sticky top-[70px] z-30 h-[70px] flex items-center`}>
+                <div className={`${theme.bgColor1} mt-6 sticky top-[70px] py-10 z-30 h-[70px] flex items-center`}>
                   <SearchBar/>
                   <div className="px-6 max-sm:pr-0 text-[18px] font-light text-violet-500 capitalize max-sm:text-[12px] max-sm:text-right">- {selected} {selected == "all" ? 'books': null}</div>
                 </div>
