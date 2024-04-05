@@ -15,6 +15,10 @@ export default function Filters() {
 
   const ratingFilterButtons = ["highest", "lowest", "all"]
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className={`relative w-fit h-[60px] flex flex-col bg-[#fbfbfb27]  rounded-full gap-2  shadow-lg font-light`}>
       <button
@@ -34,7 +38,7 @@ export default function Filters() {
           </div>
           {genres && genres.map((genre, key)=> {
               return(
-                <button key={key} onClick={(e)=> dispatch(filterData({"genre" : e.target.innerText}))}
+                <button key={key} onClick={(e)=> {dispatch(filterData({"genre" : e.target.innerText})); scrollToTop()}}
                 className={`${selected.toLowerCase() == genre.toLowerCase() ? "text-violet-500" : "hover:text-slate-400 hover:px-6 text-left"}  flex items-center justify-start px-4 py-2 w-full border-b-[1px] border-[#f2f2f231] transition-all `}>
                 <div className={`${selected.toLowerCase() != genre.toLowerCase() ? 'w-[0px]' : 'w-[10px] mr-4'}  transition-all aspect-square rounded-full bg-violet-500`}></div>
                 {genre} </button>
