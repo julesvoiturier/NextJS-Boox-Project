@@ -1,12 +1,18 @@
 "use client"
 
 import React from 'react'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import BottomBar from "./../ui/bottomBar/BottomBar"
 import Link from 'next/link'
+import Aos from "aos"
+import "./../../../node_modules/aos/dist/aos.css"
 
 export default function Page() {
+
+  useEffect(() => {
+    Aos.init({ duration: 1000  });
+  }, []);
 
   const Data = useSelector((state) => state.content.contents)
   const isLoading = useSelector((state) => state.content.isLoading)
@@ -39,7 +45,7 @@ export default function Page() {
               {column && column[column.length-1] && typeof column[column.length-1] === 'string' ? column[column.length-1].charAt(0) : ''}
             </div>
             {column.map(name => (
-              <Link href={`/authors/${name}`} className='text-white font-light hover:text-violet-500 transition-all hover:translate-x-[3px] tracking-wide pb-2 mb-2 border-b-[0.5px] border-[#262626]' key={name}>{name}</Link>
+              <Link data-aos="fade-in" href={`/authors/${name}`} className='text-white font-light hover:text-violet-500 transition-all hover:translate-x-[3px] tracking-wide pb-2 mb-2 border-b-[0.5px] border-[#262626]' key={name}>{name}</Link>
             ))}
         </div>
       ))}

@@ -13,8 +13,14 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Aos from "aos"
+import "./../../node_modules/aos/dist/aos.css"
 
 export default function Page() {
+
+    useEffect(() => {
+        Aos.init({ duration: 1000  });
+    }, []);
 
     //! Favourites array
     const [favourites, setFavourites] = useState([])
@@ -55,7 +61,7 @@ export default function Page() {
                 {/* map on filteredData (Data with applied filters) and returns a book card*/}
                     {filteredData && filteredData.map((book, key)=> {
                         return(
-                            <div key={key} className=" w-1/6 max-sm:w-1/2 max-md:w-1/3 h-[580px] max-sm:h-[450px] max-md:h-[500px] p-3 group">
+                            <div data-aos="fade-up" key={key} className=" w-1/6 max-sm:w-1/2 max-md:w-1/3 h-[580px] max-sm:h-[450px] max-md:h-[500px] p-3 group">
                                 <Link href={`/shop/${book.id-1}`} key={key} className="w-1/6 p-6 ">
                                     <div className="w-full aspect-[2/3] bg-white overflow-hidden rounded-md flex justify-center items-center transition-all group-hover:translate-y-[-5px] group">
                                         <img className={`w-full rounded-md scale-[105%] transition-all`} src={book.image_url} alt="" />

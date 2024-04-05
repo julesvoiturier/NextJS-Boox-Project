@@ -1,12 +1,18 @@
 'use client'
 
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import BottomBar from '../ui/bottomBar/BottomBar';
 import { updateFavs } from '../reduxLib/features/connection/connectionSlice';
 import Link from 'next/link';
+import Aos from "aos"
+import "./../../../node_modules/aos/dist/aos.css"
 
 export default function Page() {
+
+  useEffect(() => {
+    Aos.init({ duration: 1000  });
+  }, []);
 
   const dispatch = useDispatch()
 
@@ -20,7 +26,7 @@ export default function Page() {
         {/* maps on favs to display favourites */}
         {favs && favs.map((book, key)=> {
           return(
-            <div key={key} className='w-1/2 max-md:w-full max-sm:h-[200px] h-[400px] p-4 max-sm:py-2 group transition-all'>
+            <div data-aos="fade-up" key={key} className='w-1/2 max-md:w-full max-sm:h-[200px] h-[400px] p-4 max-sm:py-2 group transition-all'>
               <div className='flex w-full h-full bg-[#0f0f0f] rounded-lg overflow-hidden border-[1px] transition-all border-[#202020] '>
                 <div className='w-1/3 h-full bg-[#202020] overflow-hidden'>
                   <img className='w-full h-full object-cover scale-105' src={book.image_url} alt="" />
