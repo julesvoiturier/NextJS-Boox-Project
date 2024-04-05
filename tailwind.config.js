@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
      extend: {
+      colors: {
+        'color1': '#00000',
+        'color2': '#f2f2f2',
+      },
        keyframes: {
          slideUp: {
            '0%': { 

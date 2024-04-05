@@ -21,7 +21,7 @@ export default function Page() {
   const favs = loggedAccount.favourites
 
   return (
-    <div className='w-full flex text-white pt-[70px]'>
+    <div className='w-full flex text-white  pt-[70px]'>
       <div className='flex flex-wrap w-full h-full p-4 max-sm:px-0'>
         {/* maps on favs to display favourites */}
         {favs && favs.map((book, key)=> {

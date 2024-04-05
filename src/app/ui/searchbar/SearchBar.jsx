@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 export default function SearchBar() {
 
+  const theme = useSelector((state) => state.theme.themeColor);
+
   const dispatch = useDispatch()
   const filteredData = useSelector((state) => state.content.filteredData)
   const isLoading = useSelector((state) => state.content.isLoading)
@@ -23,7 +25,7 @@ export default function SearchBar() {
   return (
     <div className='w-[25%] max-sm:w-2/3 animate-slideUp'>
       <div className='relative w-[100%] flex flex-col gap-[16px] rounded-full text-white m-6 z-10 pr-4'>
-            <input ref={inputRef} onChange={(e)=> dispatch(newSearch(e.target.value))} onClick={()=> openFilter && dispatch(toggleFilter())} className=' focus:outline-none font-light rounded-full h-[40px] border-[1px] focus:border-[#fbfbfb5d] border-[#fbfbfb27] bg-[#000000] px-4 py-1 text-[14px] w-full' type="text" placeholder='search' />
+            <input ref={inputRef} onChange={(e)=> dispatch(newSearch(e.target.value))} onClick={()=> openFilter && dispatch(toggleFilter())} className={`${theme.bgColor1} focus:outline-none font-light rounded-full h-[40px] border-[1px] focus:border-[#fbfbfb5d] border-[#fbfbfb27]  px-4 py-1 text-[14px] w-full`} type="text" placeholder='search' />
             <div className={` absolute w-full top-[50px] flex flex-col max-h-[300px] overflow-y-scroll rounded-lg bg-[#0f0f0faf] backdrop-blur-lg`}>
               {filteredData && filteredData.map((book, index) => {
                   if (book.authors.toLowerCase().includes(search.toLowerCase()) && search !== "") {

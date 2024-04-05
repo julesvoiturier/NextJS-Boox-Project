@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Aos from "aos"
 import "./../../node_modules/aos/dist/aos.css"
+import themeSlice from "./reduxLib/features/theme/themeSlice"
 
 export default function Page() {
 
@@ -25,6 +26,7 @@ export default function Page() {
     //! Favourites array
     const [favourites, setFavourites] = useState([])
     const loggedAccount = useSelector((state) => state.connection.loggedAccount);
+    const theme = useSelector((state) => state.theme.themeColor);
 
     //! Updates favourites array defining which ones to hilight in the map
     useEffect(() => {
@@ -47,13 +49,13 @@ export default function Page() {
     if (error) {return error}
 
     return (
-        <div className="w-full text-white pt-[70px] animate-slideUp z-50 ">
+        <div className={`w-full text-white pt-[70px] animate-slideUp z-50 ${theme.bgColor1}`}>
             <div className="text-white text-[14px]">
-                <div className="font-bold tracking-tight text-[100px] px-6 py-4 border-t-[1px] border-[#2e1848] flex leading-none max-sm:w-full max-sm:justify-between max-sm:text-[80px]">BOOX
+                <div className={`${theme.textColor1} font-bold tracking-tight text-[100px] px-6 border-b-[1px] border-[#2e1848] flex leading-none max-sm:w-full max-sm:justify-between max-sm:text-[80px]`}>BOOX
                     <div className="text-[15px] tracking-normal pl-6 py-3 flex flex-col justify-between max-sm max-sm:text-right">Search <br />Review <br />Discover</div>
                 </div>
                 <Carousel Data={Data}/>
-                <div className=" bg-[#000000] mt-6 sticky top-[70px] z-30 h-[70px] flex items-center">
+                <div className={`${theme.bgColor1} mt-6 sticky top-[70px] z-30 h-[70px] flex items-center`}>
                   <SearchBar/>
                   <div className="px-6 max-sm:pr-0 text-[18px] font-light text-violet-500 capitalize max-sm:text-[12px] max-sm:text-right">- {selected} {selected == "all" ? 'books': null}</div>
                 </div>
@@ -61,7 +63,7 @@ export default function Page() {
                 {/* map on filteredData (Data with applied filters) and returns a book card*/}
                     {filteredData && filteredData.map((book, key)=> {
                         return(
-                            <div data-aos="fade-up" key={key} className=" w-1/6 max-sm:w-1/2 max-md:w-1/3 h-[580px] max-sm:h-[450px] max-md:h-[500px] p-3 group">
+                            <div data-aos="fade-up" key={key} className={`${theme.textColor1} w-1/6 max-sm:w-1/2 max-md:w-1/3 h-[580px] max-sm:h-[450px] max-md:h-[500px] p-3 group`}>
                                 <Link href={`/shop/${book.id-1}`} key={key} className="w-1/6 p-6 ">
                                     <div className="w-full aspect-[2/3] bg-white overflow-hidden rounded-md flex justify-center items-center transition-all group-hover:translate-y-[-5px] group">
                                         <img className={`w-full rounded-md scale-[105%] transition-all`} src={book.image_url} alt="" />

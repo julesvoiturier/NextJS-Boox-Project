@@ -17,6 +17,7 @@ export default function Page() {
   const Data = useSelector((state) => state.content.contents)
   const isLoading = useSelector((state) => state.content.isLoading)
   const error = useSelector((state) => state.content.error)
+  const theme = useSelector((state) => state.theme.themeColor);
 
   let authorsArray = Data.map(book => book.authors).sort();
   //! Making sure all authors names are defined
@@ -37,7 +38,7 @@ export default function Page() {
   }
 
   return (
-    <div className='flex justify-between pt-[70px] text-[14px] max-sm:flex-col'>
+    <div className={`flex justify-between pt-[70px] text-[14px] max-sm:flex-col ${theme.bgColor1}`}>
       {namesCol && namesCol.map((column, index) => (
         <div key={index} className="p-6 w-[25%] max-sm:w-full flex flex-col">
             <div className='text-white text-[20px] font-bold sticky top-[70px] z-30 h-[70px] bg-black py-6 border-b-[0.5px] border-[#4d4d4d] mb-2'>
