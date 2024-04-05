@@ -8,7 +8,6 @@ import Link from "next/link"
 import { updateFavs } from "./reduxLib/features/connection/connectionSlice"
 import Loading from "./loading"
 import Carousel from "./ui/carousel/Carousel"
-import Filters from "./ui/filters/Filters"
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
@@ -17,12 +16,11 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Page() {
 
-
-    //!------------------------------------
-
+    //! Favourites array
     const [favourites, setFavourites] = useState([])
     const loggedAccount = useSelector((state) => state.connection.loggedAccount);
 
+    //! Updates favourites array defining which ones to hilight in the map
     useEffect(() => {
         setFavourites(loggedAccount.favourites)
     }, [loggedAccount.favourites]);
@@ -35,11 +33,8 @@ export default function Page() {
     const Data = useSelector((state) => state.content.contents)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(fetchContent())
-    },[])
-
-      useEffect(() => {dispatch(setGenres())},[Data]);
+    useEffect(() => {dispatch(fetchContent())},[])
+    useEffect(() => {dispatch(setGenres())},[Data]);
 
 
     if (isLoading) {return <Loading/>}
@@ -56,10 +51,11 @@ export default function Page() {
                   <SearchBar/>
                   <div className="px-6 text-[18px] font-light text-violet-500 capitalize max-sm:text-[12px] max-sm:text-right">- {selected} {selected == "all" ? 'books': null}</div>
                 </div>
-                <div className="flex flex-wrap px-3 min-h-screen">                    
+                <div className="flex flex-wrap px-3 min-h-screen">   
+                {/* map on filteredData (Data with applied filters) and returns a book card*/}
                     {filteredData && filteredData.map((book, key)=> {
                         return(
-                            <div key={key} className=" w-1/6 max-sm:w-1/2 h-[580px] max-sm:h-[450px] p-3 group">
+                            <div key={key} className=" w-1/6 max-sm:w-1/2 max-md:w-1/3 h-[580px] max-sm:h-[450px] max-md:h-[500px] p-3 group">
                                 <Link href={`/shop/${book.id-1}`} key={key} className="w-1/6 p-6 ">
                                     <div className="w-full aspect-[2/3] bg-white overflow-hidden rounded-md flex justify-center items-center transition-all group-hover:translate-y-[-5px] group">
                                         <img className={`w-full rounded-md scale-[105%] transition-all`} src={book.image_url} alt="" />
@@ -72,10 +68,8 @@ export default function Page() {
                                         <div className="group-hover:text-violet-500 transition-all">{book.title}</div>
                                     </Link>
                                     <div className="w-[30%] flex justify-end items-start ">
-
-
-                                        
                                         {
+                                            //! If someone is logged, display the 'favourites' button to add a movie to favourites                                           
                                             loggedAccount.userName &&
                                             <button onClick={() => {dispatch(updateFavs({"title": book.title, "authors": book.authors, "id": book.id, "image_url": book.image_url, "review" : "", "rate": null}));}}
                                             className={` active:scale-110 transition-all z-10 `}>

@@ -20,9 +20,9 @@ export default function Filters() {
   };
 
   return (
-    <div className={`relative w-fit h-[60px] flex flex-col bg-[#fbfbfb27]  rounded-full gap-2  shadow-lg font-light`}>
+    <div className={`relative w-fit h-[60px] flex flex-col bg-[#fbfbfb27] max-md:bg-transparent  rounded-full gap-2  shadow-lg font-light`}>
       <button
-      onClick={()=> dispatch(toggleFilter())} className={`${openFilter ? 'bg-white text-black':'bg-[#101010] hover:bg-[#454545]'} transition-all  px-10 flex items-center justify-center rounded-full h-full m-2`}>Filters</button>
+      onClick={()=> dispatch(toggleFilter())} className={`${openFilter ? 'bg-white text-black':'bg-[#101010] max-md:bg-violet-500 hover:bg-[#454545]'} transition-all  px-10 flex items-center justify-center rounded-full h-full m-2 max-md:mx-0`}>Filters</button>
       <div className={`${openFilter ? 'visible' : 'hidden'} absolute top-[-250px] flex flex-col gap-2 rounded-lg transition-all bg-[#0f0f0faf] backdrop-blur-lg`}>
         <div className='text-white bg-[#0f0f0faf] border-[1px] border-[#f2f2f231] rounded-lg'>
         <div className='bg-black font-bold rounded-t-lg py-2 px-4 border-b-[1px] border-[#f2f2f231]'>Rating</div>

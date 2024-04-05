@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 export default function Page({params}) {
 
+    //! params replaces white space with "%20", the following line removes it and puts back the white spaces
     const authorName = params.authorsDetails.replaceAll("%20", " ")
     const Data = useSelector((state) => state.content.contents)
 

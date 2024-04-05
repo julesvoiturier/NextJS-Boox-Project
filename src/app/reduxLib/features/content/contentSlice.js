@@ -27,6 +27,8 @@ export const contentSlice = createSlice({
   initialState,
   reducers: {
 
+    //! Loops on Data, push every object.genre to "genres", do nothing if object.genre is already in "genres"
+    //! Makes an array containing each genre only once (used for the filter selector button)
     setGenres: (state) => {
         state.contents.forEach((book) => {
             const genresArray = book.genres.split(", ")
@@ -41,12 +43,14 @@ export const contentSlice = createSlice({
 
     filterData: (state, action) => {
       state.selectedGenre = action.payload.genre
+      //! if action.payload = all : filteredData = Data
       if (action.payload.genre != "all") {
           state.filteredData = state.contents.filter(book => 
               book.genres.toLowerCase().includes(action.payload.genre.toLowerCase())
           );
           state.neutralData = state.filteredData
       } else {
+        //! if action.payload = genre-name : filterData = Data without books not corresponding to genre-name
           state.filteredData = state.contents
           state.neutralData = state.contents
       }
@@ -56,16 +60,19 @@ export const contentSlice = createSlice({
         state.selectedDateFilter = action.payload
     },
 
+    //! Rate (higher/lower/all) filter
     setRateFilter: (state, action) => {
         state.selectedRateFilter = action.payload
         if (action.payload == "lowest") {
+          //! if filter chosen = lowest: creates an array with the value of filteredData sorted from lowest to highest rate
           const sortedDataLowest = [...state.filteredData].sort((a, b) => a.rating - b.rating);
-          console.log(sortedDataLowest);
           state.filteredData = sortedDataLowest
         } else if (action.payload == "highest") {
+          //! if filter chosen = lowest: creates an array with the value of filteredData sorted from highest to lowest rate
           const sortedDataHighest = [...state.filteredData].sort((a, b) => b.rating - a.rating);
           state.filteredData = sortedDataHighest
         } else if (action.payload == "all") {
+          //! if filter chosen = lowest: replaces the value of filteredData with neutralData (which is the initial value of filteredData (only with genres sorting))
           state.filteredData = state.neutralData
         }
     }

@@ -13,8 +13,10 @@ export default function Page() {
   const error = useSelector((state) => state.content.error)
 
   let authorsArray = Data.map(book => book.authors).sort();
+  //! Making sure all authors names are defined
   const newArray = [...new Set(authorsArray)].filter(name => name !== undefined);
 
+  //! creates 4 arrays from newArray, each one starting and ending with a specific letter
   const namesCol = Data && [
     newArray.filter(name => name.charCodeAt(0) >= 'A'.charCodeAt(0) && name.charCodeAt(0) <= 'E'.charCodeAt(0)),
     newArray.filter(name => name.charCodeAt(0) >= 'F'.charCodeAt(0) && name.charCodeAt(0) <= 'K'.charCodeAt(0)),

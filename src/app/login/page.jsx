@@ -13,13 +13,7 @@ export default function Page() {
  const emailRef = useRef(null);
 
  const dispatch = useDispatch();
- const logged = useSelector((state) => state.connection.logged);
- const loggedAccount = useSelector((state) => state.connection.loggedAccount);
  const accounts = useSelector((state) => state.connection.accounts);
-
- useEffect(() => {
-   //actions when logged or loggedAccount changes
- }, [logged, loggedAccount]);
  
  const [errorMessage, setErrorMessage] = useState("")
  const newAccount = () => {

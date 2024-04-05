@@ -8,15 +8,11 @@ export const connectionSlice = createSlice({
     logged: false
   },
   reducers: {
+
+    //! adds action.payload to loggedAccount
     logIn: (state, action) => {
       state.loggedAccount = action.payload
       state.logged = true
-        // state.accounts.map((account, key)=> {
-        //   if (account.password == action.payload.password && account.userName == action.payload.userName) {
-        //     state.loggedAccount = account
-        //     state.logged = true
-        //   }
-        // })
     },
 
     logOut: (state) => {

@@ -1,5 +1,6 @@
 'use client'
 
+//! created a storeProvider component to wrap the rootLayout
 import { Provider } from 'react-redux'
 import { store } from './reduxLib/store'
 

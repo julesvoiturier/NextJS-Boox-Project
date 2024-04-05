@@ -13,6 +13,7 @@ export default function Page() {
   const logged = useSelector((state) => state.connection.logged);
   const goBack = useRef(null);
   
+  //! every time the value of "logged" changes, click on go back button if it's true / do nothing if it's false
   useEffect(() => {
     logged ? goBack.current.click() : null
   }, [logged]);
