@@ -31,9 +31,9 @@ export default function Page({ params }) {
 
  return (
     <div className='text-white pt-[140px] w-full p-6 flex flex-col justify-center items-center'>
-      <div className='w-[80%] gap-8 p-6 flex'>
-         <img className='w-1/3 rounded-lg' src={bookDetails?.image_url} alt="" />
-         <div className='w-2/3 flex flex-col gap-4'>
+      <div className='w-[80%] gap-8 p-6 max-md:p-0 flex max-md:flex-col max-md:w-full'>
+         <img className='w-1/3 max-sm:w-full rounded-lg' src={bookDetails?.image_url} alt="" />
+         <div className='w-2/3 max-md:w-full flex flex-col gap-4'>
             <div>
                <p className='font-bold text-[30px] leading-[35px]'>{bookDetails?.title}</p>
                <p className='font-light opacity-50 pt-4'>{bookDetails?.authors}</p>
@@ -54,10 +54,10 @@ export default function Page({ params }) {
             </div>
          </div>
       </div>
-      <div className='w-[80%] p-6 mt-[70px]'>
+      <div className='w-[80%] max-md:w-full p-6 max-md:p-0 mt-[70px] max-md:mt-10'>
          <div className='text-center bg-[#101010] p-8 rounded-lg'>
                <p className='font-bold text-[20px]'>Famous quotes:</p>
-               <div className='flex flex-col gap-2 mt-4 font-light'>
+               <div className='flex flex-col gap-2 max-md:gap-4 mt-4 font-light'>
                   <p className=''>{bookDetails?.Quote1}</p>
                   <p className=''>{bookDetails?.Quote2}</p>
                   <p className=''>{bookDetails?.Quote3}</p>
