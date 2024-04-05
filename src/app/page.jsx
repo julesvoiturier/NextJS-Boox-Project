@@ -9,6 +9,11 @@ import { updateFavs } from "./reduxLib/features/connection/connectionSlice"
 import Loading from "./loading"
 import Carousel from "./ui/carousel/Carousel"
 import Filters from "./ui/filters/Filters"
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Page() {
 
@@ -66,11 +71,16 @@ export default function Page() {
                                         <div className="opacity-50 group-hover:text-violet-500 transition-all">{book.authors} -</div>
                                         <div className="group-hover:text-violet-500 transition-all">{book.title}</div>
                                     </Link>
-                                    <div className="w-[30%] flex justify-end items-start pt-6 ">
+                                    <div className="w-[30%] flex justify-end items-start ">
+
+
+                                        
                                         {
                                             loggedAccount.userName &&
                                             <button onClick={() => {dispatch(updateFavs({"title": book.title, "authors": book.authors, "id": book.id, "image_url": book.image_url, "review" : "", "rate": null}));}}
-                                            className={`${favourites && favourites.some(fav => fav.title === book.title) ? 'bg-violet-500': 'bg-[#272727] hover:bg-[#444444]'} active:scale-110 transition-all z-10 size-[30px] rounded-full `}></button>
+                                            className={` active:scale-110 transition-all z-10 `}>
+                                            <FontAwesomeIcon className={`${favourites && favourites.some(fav => fav.title === book.title) ? 'text-yellow-400 active:scale-110': 'text-[#272727] hover:text-[#444444]'} text-[30px] active:scale-110 transition-all z-10 `}  icon={faStar} />
+                                            </button>
                                         }
                                     </div>
                                 </div>
