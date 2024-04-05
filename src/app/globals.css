@@ -39,3 +39,8 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+/* *{
+    overflow-y: auto;
+    overflow-x: hidden;
+} */
