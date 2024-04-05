@@ -16,11 +16,11 @@ export default function Page() {
 
   return (
     <div className='w-full flex text-white pt-[70px]'>
-      <div className='flex flex-wrap w-full h-full p-4'>
+      <div className='flex flex-wrap w-full h-full p-4 max-sm:px-0'>
         {/* maps on favs to display favourites */}
         {favs && favs.map((book, key)=> {
           return(
-            <div key={key} className='w-1/2 max-md:w-full max-sm:h-[200px] h-[400px] p-4 group transition-all'>
+            <div key={key} className='w-1/2 max-md:w-full max-sm:h-[200px] h-[400px] p-4 max-sm:py-2 group transition-all'>
               <div className='flex w-full h-full bg-[#0f0f0f] rounded-lg overflow-hidden border-[1px] transition-all border-[#202020] '>
                 <div className='w-1/3 h-full bg-[#202020] overflow-hidden'>
                   <img className='w-full h-full object-cover scale-105' src={book.image_url} alt="" />
