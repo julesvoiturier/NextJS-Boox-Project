@@ -38,14 +38,6 @@ export const connectionSlice = createSlice({
         })
     },
 
-    deleteAccount: (state, action) => {
-        state.accounts.map((element, key)=> {
-          if (element.name == loggedAccount.name && element.password == loggedAccount.password ) {
-            state.accounts.splice(key, 1)
-          }
-        })
-    },
-
     //! add/remove favourites
     updateFavs: (state, action) => {
       if (state.loggedAccount.favourites.some(element => element.title === action.payload.title)) {
@@ -59,5 +51,5 @@ export const connectionSlice = createSlice({
   }
 })
 
-export const { logIn, logOut, createAccount, deleteAccount, updateFavs } = connectionSlice.actions
+export const { logIn, logOut, createAccount, updateFavs } = connectionSlice.actions
 export default connectionSlice.reducer

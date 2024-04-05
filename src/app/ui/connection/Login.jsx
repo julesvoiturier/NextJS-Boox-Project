@@ -1,12 +1,11 @@
 "use client"
 
-import { useRouter } from 'next/router';
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, logOut, createAccount, deleteAccount } from '../../reduxLib/features/connection/connectionSlice';
 import Link from 'next/link';
 
-export default function Page() {
+export default function Page({loginOk, newAccountOk}) {
 
   const [userName, setUserName] = useState("")
   const [password, setPassword] = useState("")
@@ -22,7 +21,6 @@ export default function Page() {
     accounts && accounts.forEach((element) => {
       if (element.userName === userName) {
         if (element.password === password) {
-          alert("favs");
           dispatch(logIn({
             "userName": element.userName,
             "password": element.password,
